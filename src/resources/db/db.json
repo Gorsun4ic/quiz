@@ -1,0 +1,706 @@
+{
+	"tests": [
+		{
+			"id": 1,
+			"name": "Ballistic missile types",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam volutpat nibh sed e",
+			"author": "Joe Biden",
+			"views": 4100,
+			"questions": [
+				{
+					"question": "What is the type of missile is X-101?",
+					"options": [
+						["Ballistic", false],
+						["Tennis", false],
+						["Ping pong", false],
+						["Cruise", true]
+					]
+				},
+				{
+					"question": "What type of missile is the Trident?",
+					"options": [
+						["Cruise", false],
+						["Ballistic", true],
+						["Tactical", false],
+						["Anti-ship", false]
+					]
+				},
+				{
+					"question": "Which missile is known for its long-range capability?",
+					"options": [
+						["Scud", false],
+						["Minuteman", true],
+						["Tomahawk", false],
+						["Harpoon", false]
+					]
+				},
+				{
+					"question": "What is the primary function of cruise missiles?",
+					"options": [
+						["Strategic bombing", false],
+						["Precision strikes", true],
+						["Counterinsurgency", false],
+						["Nuclear deterrence", false]
+					]
+				},
+				{
+					"question": "Which missile can be launched from submarines?",
+					"options": [
+						["SLBM", true],
+						["ICBM", false],
+						["AAM", false],
+						["SAM", false]
+					]
+				},
+				{
+					"question": "What is the primary launch platform for ballistic missiles?",
+					"options": [
+						["Air", false],
+						["Land", false],
+						["Sea", false],
+						["All of the above", true]
+					]
+				},
+				{
+					"question": "Which missile is designed for short-range engagements?",
+					"options": [
+						["SRBM", true],
+						["MRBM", false],
+						["ICBM", false],
+						["CRBM", false]
+					]
+				},
+				{
+					"question": "What is the key feature of ICBMs?",
+					"options": [
+						["Long-range", true],
+						["Short-range", false],
+						["Surface-to-air", false],
+						["Anti-tank", false]
+					]
+				},
+				{
+					"question": "Which country developed the BrahMos missile?",
+					"options": [
+						["India", true],
+						["China", false],
+						["Russia", false],
+						["USA", false]
+					]
+				},
+				{
+					"question": "What is the main propulsion method for most cruise missiles?",
+					"options": [
+						["Rocket", false],
+						["Turbojet", true],
+						["Ramjet", false],
+						["Electric", false]
+					]
+				},
+				{
+					"question": "What type of missile system is used for air defense?",
+					"options": [
+						["SAM", true],
+						["ICBM", false],
+						["SLBM", false],
+						["Cruise", false]
+					]
+				},
+				{
+					"question": "What is the guidance system commonly used in missiles?",
+					"options": [
+						["GPS", true],
+						["Inertial", false],
+						["Radio", false],
+						["Laser", false]
+					]
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "World Geography",
+			"description": "Test your knowledge about countries and capitals.",
+			"author": "Jane Doe",
+			"views": 23000,
+			"questions": [
+				{
+					"question": "What is the capital of France?",
+					"options": [
+						["Berlin", false],
+						["Madrid", false],
+						["Paris", true],
+						["Rome", false]
+					]
+				},
+				{
+					"question": "Which river flows through Egypt?",
+					"options": [
+						["Amazon", false],
+						["Nile", true],
+						["Yangtze", false],
+						["Mississippi", false]
+					]
+				},
+				{
+					"question": "Which country is known as the Land of the Rising Sun?",
+					"options": [
+						["China", false],
+						["Japan", true],
+						["Thailand", false],
+						["South Korea", false]
+					]
+				},
+				{
+					"question": "What is the largest continent?",
+					"options": [
+						["Africa", false],
+						["Asia", true],
+						["North America", false],
+						["Antarctica", false]
+					]
+				},
+				{
+					"question": "Which ocean is the largest?",
+					"options": [
+						["Atlantic", false],
+						["Indian", false],
+						["Arctic", false],
+						["Pacific", true]
+					]
+				},
+				{
+					"question": "What is the capital of Australia?",
+					"options": [
+						["Sydney", false],
+						["Melbourne", false],
+						["Canberra", true],
+						["Brisbane", false]
+					]
+				},
+				{
+					"question": "Which desert is the largest in the world?",
+					"options": [
+						["Sahara", false],
+						["Arabian", false],
+						["Gobi", false],
+						["Antarctic", true]
+					]
+				},
+				{
+					"question": "What is the currency of the United Kingdom?",
+					"options": [
+						["Dollar", false],
+						["Euro", false],
+						["Pound", true],
+						["Yen", false]
+					]
+				},
+				{
+					"question": "Which mountain is the highest in the world?",
+					"options": [
+						["K2", false],
+						["Kangchenjunga", false],
+						["Mount Everest", true],
+						["Lhotse", false]
+					]
+				},
+				{
+					"question": "Which continent has the most countries?",
+					"options": [
+						["Asia", false],
+						["Africa", true],
+						["Europe", false],
+						["Oceania", false]
+					]
+				},
+				{
+					"question": "What is the capital of Canada?",
+					"options": [
+						["Toronto", false],
+						["Ottawa", true],
+						["Vancouver", false],
+						["Montreal", false]
+					]
+				},
+				{
+					"question": "Which country is famous for the Great Wall?",
+					"options": [
+						["India", false],
+						["China", true],
+						["Mexico", false],
+						["Japan", false]
+					]
+				}
+			]
+		},
+		{
+			"id": 3,
+			"name": "Basic Math",
+			"description": "Evaluate your math skills with simple problems.",
+			"author": "Albert Einstein",
+			"views": 15000,
+			"questions": [
+				{
+					"question": "What is 5 + 7?",
+					"options": [
+						["10", false],
+						["12", true],
+						["14", false],
+						["15", false]
+					]
+				},
+				{
+					"question": "What is 9 - 3?",
+					"options": [
+						["6", true],
+						["5", false],
+						["7", false],
+						["4", false]
+					]
+				},
+				{
+					"question": "What is 8 × 7?",
+					"options": [
+						["54", false],
+						["56", true],
+						["64", false],
+						["48", false]
+					]
+				},
+				{
+					"question": "What is 100 ÷ 4?",
+					"options": [
+						["24", false],
+						["20", true],
+						["30", false],
+						["40", false]
+					]
+				},
+				{
+					"question": "What is the square root of 81?",
+					"options": [
+						["7", false],
+						["8", false],
+						["9", true],
+						["10", false]
+					]
+				},
+				{
+					"question": "What is 15% of 200?",
+					"options": [
+						["30", true],
+						["25", false],
+						["20", false],
+						["15", false]
+					]
+				},
+				{
+					"question": "What is 3²?",
+					"options": [
+						["6", false],
+						["9", true],
+						["12", false],
+						["3", false]
+					]
+				},
+				{
+					"question": "What is the value of π approximately?",
+					"options": [
+						["3.14", true],
+						["3.15", false],
+						["3.16", false],
+						["3.13", false]
+					]
+				},
+				{
+					"question": "What is the sum of angles in a triangle?",
+					"options": [
+						["90 degrees", false],
+						["180 degrees", true],
+						["360 degrees", false],
+						["270 degrees", false]
+					]
+				},
+				{
+					"question": "What is 7 × 8?",
+					"options": [
+						["54", false],
+						["56", true],
+						["64", false],
+						["48", false]
+					]
+				},
+				{
+					"question": "What is 50 - 25?",
+					"options": [
+						["15", false],
+						["25", true],
+						["30", false],
+						["20", false]
+					]
+				},
+				{
+					"question": "What is 9 + 10?",
+					"options": [
+						["18", false],
+						["19", true],
+						["21", false],
+						["20", false]
+					]
+				}
+			]
+		},
+		{
+			"id": 4,
+			"name": "Latest trends in technology",
+			"description": "Understanding the latest innovations and their implications.",
+			"author": "Elon Musk",
+			"views": 19000,
+			"questions": [
+				{
+					"question": "What does AI stand for?",
+					"options": [
+						["Artificial Intelligence", true],
+						["Automated Information", false],
+						["Advanced Integration", false],
+						["Algorithmic Intelligence", false]
+					]
+				},
+				{
+					"question": "Which company is known for its electric cars?",
+					"options": [
+						["Toyota", false],
+						["Tesla", true],
+						["Ford", false],
+						["Nissan", false]
+					]
+				},
+				{
+					"question": "What technology is used for virtual reality?",
+					"options": [
+						["VR headsets", true],
+						["Smartphones", false],
+						["Televisions", false],
+						["Drones", false]
+					]
+				},
+				{
+					"question": "Which programming language is primarily used for web development?",
+					"options": [
+						["Python", false],
+						["Java", false],
+						["JavaScript", true],
+						["C++", false]
+					]
+				},
+				{
+					"question": "What is the primary function of blockchain technology?",
+					"options": [
+						["Data storage", false],
+						["Cryptocurrency", true],
+						["Web browsing", false],
+						["Gaming", false]
+					]
+				},
+				{
+					"question": "What is IoT an abbreviation for?",
+					"options": [
+						["Internet of Things", true],
+						["Input Output Technology", false],
+						["Information on Technology", false],
+						["Internet on Time", false]
+					]
+				},
+				{
+					"question": "Which company is known for the iPhone?",
+					"options": [
+						["Samsung", false],
+						["Apple", true],
+						["Nokia", false],
+						["Huawei", false]
+					]
+				},
+				{
+					"question": "What is the main purpose of 5G technology?",
+					"options": [
+						["Faster internet", true],
+						["Better graphics", false],
+						["Longer battery life", false],
+						["More apps", false]
+					]
+				},
+				{
+					"question": "Which of the following is a type of machine learning?",
+					"options": [
+						["Supervised", true],
+						["Unsupervised", true],
+						["Reinforcement", true],
+						["All of the above", true]
+					]
+				},
+				{
+					"question": "What does the term 'Big Data' refer to?",
+					"options": [
+						["Large data sets", true],
+						["Small data sets", false],
+						["Data with no value", false],
+						["Data for gaming", false]
+					]
+				},
+				{
+					"question": "What technology does a smart home use?",
+					"options": [
+						["AI", true],
+						["Blockchain", false],
+						["GPS", false],
+						["VR", false]
+					]
+				},
+				{
+					"question": "Which device is commonly used for smart homes?",
+					"options": [
+						["Smart thermostat", true],
+						["Regular thermostat", false],
+						["Laptop", false],
+						["Desktop", false]
+					]
+				}
+			]
+		},
+		{
+			"id": 5,
+			"name": "Psychology Basics",
+			"description": "Basic principles of psychology.",
+			"author": "Sigmund Freud",
+			"views": 11000,
+			"questions": [
+				{
+					"question": "What is the study of the mind called?",
+					"options": [
+						["Sociology", false],
+						["Psychology", true],
+						["Philosophy", false],
+						["Anthropology", false]
+					]
+				},
+				{
+					"question": "What part of the brain controls emotions?",
+					"options": [
+						["Cerebellum", false],
+						["Amygdala", true],
+						["Cortex", false],
+						["Hippocampus", false]
+					]
+				},
+				{
+					"question": "What is the primary focus of cognitive psychology?",
+					"options": [
+						["Behavior", false],
+						["Thought processes", true],
+						["Emotions", false],
+						["Dreams", false]
+					]
+				},
+				{
+					"question": "What is a common method of psychological assessment?",
+					"options": [
+						["Surveys", true],
+						["Interviews", true],
+						["Tests", true],
+						["All of the above", true]
+					]
+				},
+				{
+					"question": "Which psychologist is known for his hierarchy of needs?",
+					"options": [
+						["Freud", false],
+						["Maslow", true],
+						["Skinner", false],
+						["Rogers", false]
+					]
+				},
+				{
+					"question": "What is the term for a mental health disorder?",
+					"options": [
+						["Psychopathy", false],
+						["Psychosis", false],
+						["Neurosis", true],
+						["Anxiety", false]
+					]
+				},
+				{
+					"question": "Which technique is often used in therapy?",
+					"options": [
+						["Cognitive-behavioral therapy", true],
+						["Electric shock therapy", false],
+						["Lobotomy", false],
+						["Hypnosis", false]
+					]
+				},
+				{
+					"question": "What does the term 'behaviorism' refer to?",
+					"options": [
+						["Study of behavior", true],
+						["Study of thoughts", false],
+						["Study of feelings", false],
+						["Study of dreams", false]
+					]
+				},
+				{
+					"question": "What is the primary focus of developmental psychology?",
+					"options": [
+						["Growth over time", true],
+						["Behavior analysis", false],
+						["Cognitive functions", false],
+						["Mental disorders", false]
+					]
+				},
+				{
+					"question": "What is the main objective of psychotherapy?",
+					"options": [
+						["Change behavior", true],
+						["Medicate patients", false],
+						["Diagnose disorders", false],
+						["Test intelligence", false]
+					]
+				},
+				{
+					"question": "What is the study of personality called?",
+					"options": [
+						["Personality psychology", true],
+						["Social psychology", false],
+						["Cognitive psychology", false],
+						["Developmental psychology", false]
+					]
+				},
+				{
+					"question": "What is the term for a sudden and intense fear?",
+					"options": [
+						["Anxiety attack", false],
+						["Panic attack", true],
+						["Nervous breakdown", false],
+						["Phobia", false]
+					]
+				}
+			]
+		},
+		{
+			"id": 6,
+			"name": "Environmental Science",
+			"description": "Fundamentals of environmental science.",
+			"author": "Rachel Carson",
+			"views": 15000,
+			"questions": [
+				{
+					"question": "What gas do plants absorb?",
+					"options": [
+						["Oxygen", false],
+						["Carbon Dioxide", true],
+						["Nitrogen", false],
+						["Hydrogen", false]
+					]
+				},
+				{
+					"question": "What is the primary source of energy for the Earth?",
+					"options": [
+						["The Moon", false],
+						["The Sun", true],
+						["The Earth itself", false],
+						["Volcanoes", false]
+					]
+				},
+				{
+					"question": "What is biodiversity?",
+					"options": [
+						["Variety of species", true],
+						["Population size", false],
+						["Ecosystem stability", false],
+						["Food chains", false]
+					]
+				},
+				{
+					"question": "What is the greenhouse effect?",
+					"options": [
+						["Heating of the Earth's surface", true],
+						["Cooling of the Earth's surface", false],
+						["Absorption of nutrients by plants", false],
+						["Formation of clouds", false]
+					]
+				},
+				{
+					"question": "Which of the following is a renewable resource?",
+					"options": [
+						["Coal", false],
+						["Natural gas", false],
+						["Solar energy", true],
+						["Nuclear energy", false]
+					]
+				},
+				{
+					"question": "What is an ecosystem?",
+					"options": [
+						["A community of living organisms", true],
+						["A type of animal", false],
+						["A type of plant", false],
+						["A method of farming", false]
+					]
+				},
+				{
+					"question": "What is the main cause of global warming?",
+					"options": [
+						["Deforestation", true],
+						["Planting trees", false],
+						["Overfishing", false],
+						["Soil erosion", false]
+					]
+				},
+				{
+					"question": "What is pollution?",
+					"options": [
+						["Contamination of the environment", true],
+						["Preservation of nature", false],
+						["Restoration of ecosystems", false],
+						["Cleaning the air", false]
+					]
+				},
+				{
+					"question": "What is conservation?",
+					"options": [
+						["Protection of natural resources", true],
+						["Exploitation of resources", false],
+						["Urban development", false],
+						["Waste generation", false]
+					]
+				},
+				{
+					"question": "What does sustainable development mean?",
+					"options": [
+						["Meeting needs without compromising future generations", true],
+						["Exploiting resources for profit", false],
+						["Rapid industrialization", false],
+						["Urbanization", false]
+					]
+				},
+				{
+					"question": "What is the primary cause of acid rain?",
+					"options": [
+						["Volcanic activity", false],
+						["Pollution from factories", true],
+						["Natural disasters", false],
+						["Deforestation", false]
+					]
+				},
+				{
+					"question": "What is a food chain?",
+					"options": [
+						["A sequence of energy transfer", true],
+						["A type of farming", false],
+						["A group of animals", false],
+						["A type of plant", false]
+					]
+				}
+			]
+		}
+	]
+}

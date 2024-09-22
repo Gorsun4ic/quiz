@@ -1,0 +1,23 @@
+.header {
+	text-transform: uppercase;
+	font-size: 32px;
+	padding-top: 55px;
+	.container {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__logo {
+		font-weight: 700;
+	}
+	&__list {
+		display: flex;
+		align-items: center;
+		gap: 45px;
+	}
+	&__item {
+		padding: 5px;
+	}
+	&__link {
+		font-weight: 400;
+	}
+}
