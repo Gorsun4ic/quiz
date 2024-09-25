@@ -11,7 +11,7 @@
 		font-size: 16px;
 		line-height: 27px;
 		font-weight: 200;
-		margin: 0 auto 86px;
+		margin: 0 auto 64px;
 		max-width: 500px;
 	}
 	p:not(.test-start__desc) {
@@ -21,12 +21,18 @@
 		letter-spacing: 0.03em;
 		margin-bottom: 12px;
 	}
-	form {
+	.form {
 		label {
 			display: block;
 			margin-bottom: 18px;
 			font-size: 18px;
 			line-height: 30px;
+		}
+		&__input {
+			margin-bottom: 16px;
+			p {
+				color: #b63b3b;
+			}
 		}
 		input {
 			display: block;
@@ -39,8 +45,8 @@
 			font-size: 16px;
 			color: #fff;
 			max-width: 185px;
+			margin-bottom: 8px;
 			width: 100%;
-			margin-bottom: 32px;
 			&:focus {
 				outline: none;
 			}

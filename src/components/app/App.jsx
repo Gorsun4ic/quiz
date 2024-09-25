@@ -9,6 +9,8 @@ import "./null.scss";
 
 const MainPage = lazy(() => import("../pages/MainPage"));
 const TestListPage = lazy(() => import("../pages/TestListPage"));
+const SingleTestPage = lazy(() => import("../pages/SingleTestPage/SingleTestPage"));
+const Page404 = lazy(() => import("../pages/404/404"));
 
 function App() {
 	return (
@@ -29,6 +31,8 @@ function App() {
 					<Routes>
 						<Route index element={<MainPage />} />
 						<Route path="tests" element={<TestListPage />} />
+						<Route path="tests/:testId" element={<SingleTestPage />} />
+						<Route path="*" element={<Page404 />} />
 					</Routes>
 				</Suspense>
 			</div>

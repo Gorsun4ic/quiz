@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 
 import useTestService from "../../services/testService";
+
+import Spinner from "../spinner/Spinner";
+import ErrorMessage from "../errorMessage/ErrorMessage";
 
 import "./testList.scss";
 import searchIcon from "../../resources/img/search.svg";
@@ -11,18 +15,17 @@ import view from "../../resources/img/eye-open.svg";
 const TestList = () => {
 	const [testList, setTestList] = useState([]);
 	const [term, setTerm] = useState("");
-	const { getAllTests } = useTestService();
+	const { getAllTests, process, setProcess } = useTestService();
 
 	useEffect(() => {
 		getAllTests()
-			.then((tests) => {
-				setTestList(tests); // Set fetched tests directly
-				console.log(tests); // Log fetched tests
-			})
-			.catch((error) => {
-				console.error("Failed to fetch tests:", error); // Handle errors
-			});
+			.then(onTestLoaded)
+			.then(() => setProcess("confirmed"));
 	}, []);
+
+	const onTestLoaded = (tests) => {
+		setTestList(tests);
+	};
 
 	const transformViews = (view) => {
 		return view.toString().length > 3
@@ -39,37 +42,47 @@ const TestList = () => {
 	};
 
 	const renderItems = (arr) => {
-		return arr.map(
-			(
-				item,
-				index // Use parentheses to return the JSX
-			) => (
-				<li className="tests__item" key={index}>
-					<a href="#">
-						<h3 className="tests__name">{item.name}</h3>
-						<ul className="tests__meta-list">
-							<li className="tests__meta-item">
-								<img
-									src={userIcon}
-									alt={`Author - ${item.author}`}
-									width="20"
-									height="20"
-								/>
-								<span>Author - {item.author}</span>
-							</li>
-							<li className="tests__meta-item">
-								<img src={view} alt="Views" width="20" height="20" />
-								<span>{transformViews(item.views)}</span>
-							</li>
-						</ul>
-						<p className="tests__desc">{item.description}</p>
-					</a>
-				</li>
-			)
-		); // Ensure to use parentheses to implicitly return
+		return arr.map((item) => (
+			<li className="tests__item" key={item.id}>
+				<Link to={`/tests/${item.id}`}>
+					<h3 className="tests__name">{item.name}</h3>
+					<ul className="tests__meta-list">
+						<li className="tests__meta-item">
+							<img
+								src={userIcon}
+								alt={`Author - ${item.author}`}
+								width="20"
+								height="20"
+							/>
+							<span>Author - {item.author}</span>
+						</li>
+						<li className="tests__meta-item">
+							<img src={view} alt="Views" width="20" height="20" />
+							<span>{transformViews(item.views)}</span>
+						</li>
+					</ul>
+					<p className="tests__desc">{item.description}</p>
+				</Link>
+			</li>
+		));
 	};
 
-	const items = renderItems(searchTest(term));
+	const setContent = (process, Component) => {
+		switch (process) {
+			case "waiting":
+				return <Spinner />;
+			case "loading":
+				return <Spinner />;
+			case "confirmed":
+				return <Component />;
+			case "error":
+				return <ErrorMessage />;
+			default:
+				throw new Error("Unexpected state");
+		}
+	};
+
+	const items = () => renderItems(searchTest(term));
 
 	return (
 		<section className="tests">
@@ -88,7 +101,9 @@ const TestList = () => {
 						/>
 					</Form>
 				</Formik>
-				<ul className="tests__list">{items}</ul>
+				<ul className="tests__list">
+					{setContent(process, items)}
+				</ul>
 			</div>
 		</section>
 	);
