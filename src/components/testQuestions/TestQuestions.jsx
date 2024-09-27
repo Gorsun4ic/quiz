@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useCallback, memo } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
@@ -10,114 +10,170 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 import "./testQuestions.scss";
 import timerImg from "../../resources/img/hourglass.svg";
 
+const Pagination = memo(
+	({ questions, currentQuestionIndex, answer, setCurrentQuestionIndex }) => {
+		return (
+			<ul className="pagination">
+				{questions.map((_, i) => {
+					const isActive = i === currentQuestionIndex ? "active" : "";
+					const answerClass = answer.find((answerItem) => answerItem[0] === i);
+					const isCorrect = answerClass
+						? answerClass[1]
+							? "correct"
+							: "incorrect"
+						: "";
+
+					return (
+						<li
+							className={`pagination__element ${isActive} ${isCorrect}`}
+							key={i}
+							onClick={() => setCurrentQuestionIndex(i)}>
+							{" "}
+							{i + 1}
+						</li>
+					);
+				})}
+			</ul>
+		);
+	}
+);
+
+const Timer = ({ timer }) => {
+	return (
+		<div className="test__timer">
+			<img src={timerImg} alt="" width="24" height="24" />
+			<span>{timer}</span>
+		</div>
+	);
+};
+
+const Question = ({
+	question,
+	selectedOption,
+	handleAnswerClick,
+	correctOption,
+}) => {
+	if (!question) return null;
+
+	const getQuestionsItemCLass = (isSelected, isCorrect, index) => {
+		if (isSelected)
+			return isCorrect ? "question__item_correct" : "question__item_incorrect";
+		if (correctOption === index) return "question__item_correct";
+		return "";
+	};
+
+	const optionLetter = (index) => `${String.fromCharCode(65 + index)}.`; // A = 65 in ASCII
+
+	return (
+		<div className="test__question question">
+			<h2 className="question__title">{question.question}</h2>
+			<ul className="questions__list">
+				{question.options.map((option, index) => {
+					const isCorrect = option[1];
+					const isSelected = selectedOption === index;
+
+					return (
+						<li
+							className={`question__item ${getQuestionsItemCLass(
+								isSelected,
+								isCorrect,
+								index
+							)}`}
+							key={index}
+							onClick={() => handleAnswerClick(index)}>
+							{`${optionLetter(index)} ${option[0]}`}
+						</li>
+					);
+				})}
+			</ul>
+		</div>
+	);
+};
+
+const Mark = ({ questions }) => {};
+
 const TestQuestions = () => {
 	const { testId } = useParams();
 	const [testInfo, setTestInfo] = useState({
 		questions: [],
-		timer: null,
 	});
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 	const [selectedOption, setSelectedOption] = useState(null);
 	const [correctOption, setCorrectOption] = useState(null);
-	const [correctAnswers, setCorrectAnswers] = useState(0);
+	const [answer, setAnswer] = useState([]);
 	const [transitioning, setTransitioning] = useState(null);
+	const questionsLength = useMemo(
+		() => testInfo.questions.length,
+		[testInfo.questions]
+	);
 	const { getTestById, process, setProcess } = useTestService();
-	const questionsLength = testInfo.questions.length;
 
 	useEffect(() => {
 		getTestById(testId)
-			.then(onQuestionLoaded)
+			.then(setTestInfo)
 			.then(() => setProcess("confirmed"));
 	}, [testId]);
 
-	const onQuestionLoaded = (tests) => {
-		setTestInfo(tests);
-	};
+	const findUnansweredQuestions = useCallback(() => {
+		const answeredIndices = answer.map(([index]) => index);
+		const unansweredQuestions = testInfo.questions
+			.map((_, index) => index)
+			.filter((index) => !answeredIndices.includes(index));
 
-	const optionLetter = (i) => {
-		const letters = ["A", "B", "C", "D", "E"];
-		return letters[i] ? `${letters[i]}.` : "";
-	};
+		return unansweredQuestions;
+	}, [answer, testInfo.questions]);
 
-	const Pagination = useMemo(() => {
-		return () => (
-			<ul className="pagination">
-				{testInfo.questions.map((item, i) => (
-					<li className="pagination__element active" key={i}>
-						{i + 1}
-					</li>
-				))}
-			</ul>
-		);
-	}, [testInfo.questions]);
+	const handleAnswerClick = useCallback(
+		(index) => {
+			if (selectedOption !== null || transitioning) return;
 
-	const Timer = useMemo(() => {
-		return () => (
-			<div className="test__timer">
-				<img src={timerImg} alt="" width="24" height="24" />
-				<span>{testInfo.timer}</span>
-			</div>
-		);
-	}, [testInfo.timer]);
-
-	const Question = () => {
-		const question = testInfo.questions[currentQuestionIndex];
-
-		if (!question) return null;
-
-		const handleItemClick = (index) => {
-			if (selectedOption !== null || transitioning) return; // Prevent further interaction
-
-			setSelectedOption(index); // Mark selected option
-			const correctIndex = question.options.findIndex((option) => option[1]); // Identify correct option
-			setCorrectOption(correctIndex);
-
+			const correctIndex = testInfo.questions[
+				currentQuestionIndex
+			]?.options.findIndex((option) => option[1]);
 			const isCorrect = index === correctIndex;
 
-			// Update correct answers count if answer is correct
-			if (isCorrect) setCorrectAnswers((prev) => prev + 1);
-
-			// Transition to next question after a brief delay to show feedback
+			setSelectedOption(index);
+			setAnswer((prev) => [...prev, [currentQuestionIndex, isCorrect]]);
 			setTransitioning(true);
+
 			setTimeout(() => {
 				setTransitioning(false);
-				setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-				setSelectedOption(null); // Reset selections for next question
-				setCorrectOption(null); // Reset correct option
-			}, 1500); // Adjust delay to show feedback
-		};
+				const unansweredQuestions = findUnansweredQuestions();
 
-		return (
-			<div className="test__question question">
-				<h2 className="question__title">{question.question}</h2>
-				<ul className="questions__list">
-					{question.options.map((option, index) => {
-						const isCorrect = option[1];
-						const isSelected = selectedOption === index;
+				if (
+					currentQuestionIndex === questionsLength - 1 &&
+					unansweredQuestions.length > 0
+				) {
+					// On last question, but unanswered questions exist
+					setCurrentQuestionIndex(unansweredQuestions[0]); // Jump to first unanswered question
+				} else if (unansweredQuestions.length > 0) {
+					const nextUnanswered = unansweredQuestions.find(
+						(unansweredIndex) => unansweredIndex > currentQuestionIndex
+					);
 
-						return (
-							<li
-								className={`question__item ${
-									isSelected
-										? isCorrect
-											? "question__item_correct"
-											: "question__item_incorrect"
-										: correctOption === index
-										? "question__item_correct"
-										: ""
-								}`}
-								key={index}
-								onClick={() => handleItemClick(index)}>
-								{`${optionLetter(index)} ${option[0]}`}
-							</li>
-						);
-					})}
-				</ul>
-			</div>
-		);
-	};
+					if (nextUnanswered !== undefined) {
+						setCurrentQuestionIndex(nextUnanswered); // Move to the next unanswered question
+					} else {
+						setCurrentQuestionIndex(unansweredQuestions[0]); // No unanswered ahead, go back to first
+					}
+				} else if (unansweredQuestions.length === 0) {
+					console.log("All questions are answered");
+					// Optional: Trigger a submit or final action here
+				}
 
-	const setContent = (process) => {
+				setSelectedOption(null);
+			}, 1500);
+		},
+		[
+			selectedOption,
+			transitioning,
+			testInfo.questions,
+			currentQuestionIndex,
+			answer,
+		]
+	);
+
+	const renderContent = () => {
 		switch (process) {
 			case "waiting":
 			case "loading":
@@ -125,9 +181,18 @@ const TestQuestions = () => {
 			case "confirmed":
 				return (
 					<>
-						<Pagination />
-						<Timer />
-						<Question />
+						<Pagination
+							questions={testInfo.questions}
+							currentQuestionIndex={currentQuestionIndex}
+							answer={answer}
+							setCurrentQuestionIndex={setCurrentQuestionIndex}
+						/>
+						<Timer timer={testInfo.timer} />
+						<Question
+							question={testInfo.questions[currentQuestionIndex]}
+							selectedOption={selectedOption}
+							handleAnswerClick={handleAnswerClick}
+						/>
 					</>
 				);
 			case "error":
@@ -138,22 +203,16 @@ const TestQuestions = () => {
 	};
 
 	return (
-		<section
-			className="test"
-			key="test-section"
-			initial={{ opacity: 0, x: 100 }}
-			animate={{ opacity: 1, x: 0 }}
-			exit={{ opacity: 0, x: -100 }}
-			transition={{ duration: 0.5 }}>
+		<section className="test" key="test-section">
 			<Helmet>
 				<meta
-					name={`${testInfo.name} page`}
-					description={`${testInfo.name} page`}
+					name={`${testInfo.name || "Test"} page`}
+					description={`${testInfo.name || "Test"} page`}
 				/>
-				<title>{`Quizcrafter | ${testInfo.name} test page`}</title>
+				<title>{`Quizcrafter | ${testInfo?.name || "Test"} test page`}</title>
 			</Helmet>
 			<div className="container">
-				<div className="test__question question">{setContent(process)}</div>
+				<div className="test__question question">{renderContent()}</div>
 			</div>
 		</section>
 	);

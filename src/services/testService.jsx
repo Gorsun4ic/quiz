@@ -21,7 +21,7 @@ const useTestService = () => {
 			author: test.author,
 			views: test.views,
 			questions: test.questions,
-			timer: test.timer ? test.timer : null,
+			timer: test.timer,
 		};
 	};
 
