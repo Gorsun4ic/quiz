@@ -1,0 +1,152 @@
+.mark {
+	max-width: 1080px;
+	margin: 0 auto;
+	&__title {
+		font-size: 49px;
+		font-weight: 700;
+		line-height: 76px;
+		letter-spacing: 0.02em;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	&__description {
+		font-size: 24px;
+		letter-spacing: 0.02em;
+		font-weight: 200;
+		text-align: center;
+		margin-bottom: 64px;
+	}
+	&__total-questions {
+		padding: 12px 32px;
+		background-color: #1e1e1e;
+		border-radius: 5px;
+		max-width: 172px;
+		text-align: center;
+		line-height: 30px;
+		margin: 0 auto 64px;
+		span {
+			font-size: 39px;
+			letter-spacing: 0.02em;
+			font-weight: 700;
+			margin-bottom: 42px;
+			text-align: center;
+		}
+		p {
+			font-size: 24px;
+			letter-spacing: 0.02em;
+			font-weight: 200;
+		}
+	}
+	.stats {
+		display: flex;
+		justify-content: space-between;
+		text-transform: uppercase;
+		margin-bottom: 64px;
+		p {
+			font-size: 24px;
+			letter-spacing: 0.02em;
+			font-weight: 400;
+		}
+		&__left {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+			.total-time {
+				p {
+					font-size: 16px;
+					margin-bottom: 0;
+					text-align: center;
+				}
+				div {
+					padding: 4px 16px;
+					background-color: #1e1e1e;
+					border-radius: 5px;
+					font-size: 24px;
+					letter-spacing: 0.02em;
+					font-weight: 400;
+				}
+			}
+			.score {
+				margin-bottom: 20px;
+			}
+			.score,
+			.result {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				gap: 25px;
+				text-align: center;
+				div {
+					background-color: #1e1e1e;
+					font-size: 24px;
+					letter-spacing: 0.02em;
+					font-weight: 400;
+					padding: 6px 32px;
+					min-width: 140px;
+					border-radius: 5px;
+				}
+			}
+		}
+		&__right {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+
+			.total-time {
+				p {
+					font-size: 16px;
+					margin-bottom: 0;
+					text-align: center;
+				}
+
+				div {
+					padding: 4px 16px;
+					background-color: #1e1e1e;
+					border-radius: 5px;
+					font-size: 24px;
+					letter-spacing: 0.02em;
+					font-weight: 400;
+				}
+			}
+
+			.correct {
+				margin-bottom: 20px;
+			}
+
+			.correct,
+			.incorrect {
+				display: flex;
+				align-items: center;
+				gap: 25px;
+				text-align: center;
+
+				div {
+					display: block;
+					background-color: #1e1e1e;
+					font-size: 24px;
+					letter-spacing: 0.02em;
+					font-weight: 400;
+					padding: 6px 32px;
+					min-width: 140px;
+					border-radius: 5px;
+				}
+			}
+		}
+	}
+	.try-again {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+		text-transform: uppercase;
+		background-color: #1e1e1e;
+		border-radius: 5px;
+		padding: 6px 20px;
+		font-size: 24px;
+		letter-spacing: 0.02em;
+		font-weight: 400;
+		transition: background-color 0.3s;
+		&:hover {
+			background-color: transparent;
+		}
+	}
+}

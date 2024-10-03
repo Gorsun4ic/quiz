@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import useSplitStrings from "../../hooks/useSplitStrings";
 
@@ -18,13 +19,14 @@ const Ready = () => {
 					}}>
 					{useSplitStrings("ready to test your knowledge?")}
 				</motion.h2>
-				<motion.a
-					className="ready__button"
-					href="#"
-					whileHover={{ scale: 1.05 }}
-					transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-					try it
-				</motion.a>
+				<Link to="/tests">
+					<motion.span
+						className="ready__button"
+						whileHover={{ scale: 1.05 }}
+						transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+						try it
+					</motion.span>
+				</Link>
 			</div>
 		</section>
 	);

@@ -434,9 +434,9 @@
 				{
 					"question": "Which of the following is a type of machine learning?",
 					"options": [
-						["Supervised", true],
-						["Unsupervised", true],
-						["Reinforcement", true],
+						["Supervised", false],
+						["Unsupervised", false],
+						["Reinforcement", false],
 						["All of the above", true]
 					]
 				},

@@ -1,4 +1,8 @@
 .header {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 3;
 	text-transform: uppercase;
 	font-size: 32px;
 	padding-top: 55px;

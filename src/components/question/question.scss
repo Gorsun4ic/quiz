@@ -1,0 +1,41 @@
+	.question {
+		&__title {
+			font-size: 39px;
+			line-height: 62px;
+			letter-spacing: 0.02em;
+			font-weight: 700;
+			margin-bottom: 42px;
+			text-align: center;
+		}
+
+		&__item {
+			background-color: #1e1e1e;
+			border-radius: 5px;
+			box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.1);
+			cursor: pointer;
+			padding: 10px 32px;
+			font-size: 24px;
+			letter-spacing: 0.02em;
+			font-weight: 200;
+			line-height: 40px;
+			transition: background-color 0.3s, box-shadow 0.3s;
+
+			&:not(:last-of-type) {
+				margin-bottom: 20px;
+			}
+
+			&:hover {
+				box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.3);
+			}
+
+			&_correct {
+				background-color: #3b8f39;
+				box-shadow: 0 0 40px 0 rgba(#3b8f39, 0.5);
+			}
+
+			&_incorrect {
+				background-color: #b63b3b;
+				box-shadow: 0 0 40px 0 rgba(#b63b3b, 0.5);
+			}
+		}
+	}

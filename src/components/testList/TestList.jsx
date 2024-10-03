@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 
+import { motion } from "framer-motion";
+
 import useTestService from "../../services/testService";
 
 import Spinner from "../spinner/Spinner";
@@ -85,7 +87,11 @@ const TestList = () => {
 	const items = () => renderItems(searchTest(term));
 
 	return (
-		<section className="tests">
+		<motion.section
+			className="tests"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}>
 			<div className="container">
 				<h2 className="tests__title">choose your test</h2>
 				<Formik initialValues={{ testName: "" }}>
@@ -101,11 +107,9 @@ const TestList = () => {
 						/>
 					</Form>
 				</Formik>
-				<ul className="tests__list">
-					{setContent(process, items)}
-				</ul>
+				<ul className="tests__list">{setContent(process, items)}</ul>
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 

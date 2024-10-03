@@ -69,22 +69,29 @@ const Demo = () => {
 		visible: {
 			opacity: 1,
 			transition: {
-				staggerChildren: 0.3, // Delay between the animation of each child
+				delayChildren: 0.5,
+				staggerChildren: 0.8 // Delay between the animation of each child
 			},
 		},
 	};
 
 	// Child motion items animation
-	const itemVariants = {
-		hidden: { opacity: 0, y: 20 },
-		visible: { opacity: 1, y: 0 },
+	const itemVariants = (i) => {
+		return {
+			hidden: { x: 0 },
+			visible: {
+				x: i % 2 === 0 ? -50 : 50,
+				transition: { delay: 0.2 },
+			},
+		};
 	};
 
 	const items = questionsArr.map((item, i) => {
 		return (
 			<motion.li
 				key={i}
-				variants={itemVariants}
+				whileInView="visible"
+				variants={itemVariants(i)}
 				className={`question__item ${setClass(item, i)}`}
 				onClick={() => {
 					if (selectedItem === null) {
@@ -112,29 +119,7 @@ const Demo = () => {
 						}}>
 						{useSplitStrings("demo")}
 					</motion.h2>
-					<motion.img
-						src={substract}
-						initial={{ x: 75, y: -50 }}
-						animate={{
-							x: substractAnimation ? [75, -75, 75] : 0,
-							rotate: substractAnimation ? 360 : 0,
-						}}
-						onTap={() => setSubstractAnimation(false)}
-						drag
-						dragConstraints={{
-							top: -50,
-							left: -50,
-							right: 50,
-							bottom: 50,
-						}}
-						transition={{
-							ease: "easeInOut",
-							duration: 3,
-							repeat: substractAnimation ? Infinity : 0,
-							repeatType: "loop",
-						}}
-						draggable="false"
-					/>
+
 					<motion.p
 						className="demo__desc"
 						initial="hidden"

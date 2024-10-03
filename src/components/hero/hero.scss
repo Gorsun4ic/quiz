@@ -5,15 +5,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	@media (min-height: 1080px) {
-		padding-top: 256px;
-	}
-	@media (min-height: 720px) {
-		padding-top: 186px;
-	}
-	@media (min-height: 455px) {
-		padding-top: 128px;
-	}
+	
 	&__title {
 		text-transform: uppercase;
 		letter-spacing: 0.03em;

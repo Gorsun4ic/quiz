@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
+import { motion } from "framer-motion";
+
 import useTestService from "../../services/testService";
 
 import Spinner from "../spinner/Spinner";
@@ -12,7 +14,7 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 
 import "./testStart.scss";
 
-const TestStart = ({ onStart }) => {
+const TestStart = ({ onStart, setUserName }) => {
 	const { testId } = useParams();
 	const [testInfo, setTestInfo] = useState({
 		name: null,
@@ -41,6 +43,11 @@ const TestStart = ({ onStart }) => {
 			.required("Required"),
 	});
 
+	const handleSubmit = (value) => {
+		setUserName(value.name);
+		onStart();
+	}
+
 	const content = () => {
 		return (
 			<>
@@ -51,7 +58,7 @@ const TestStart = ({ onStart }) => {
 				<Formik
 					initialValues={{ name: "" }}
 					validationSchema={nameValidation}
-					onSubmit={onStart}>
+					onSubmit={handleSubmit}>
 					{({ errors, touched }) => (
 						<Form className="form">
 							<div className="form__input">
@@ -86,7 +93,7 @@ const TestStart = ({ onStart }) => {
 	};
 
 	return (
-		<section
+		<motion.section
 			className="test-start"
 			key="start-section"
 			initial={{ opacity: 0, y: -20 }}
@@ -101,7 +108,7 @@ const TestStart = ({ onStart }) => {
 				<title>{`Quizcrafter | ${testInfo.name} test page`}</title>
 			</Helmet>
 			<div className="container">{setContent(process, content)}</div>
-		</section>
+		</motion.section>
 	);
 };
 
