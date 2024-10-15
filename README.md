@@ -1,70 +1,164 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# QuizCrafter
 
-## Available Scripts
+QuizCrafter is a web application designed to create, manage, and take quizzes online. It allows users to participate in quizzes, view results, and track their progress. The application leverages React for the frontend, offering a smooth and interactive user experience.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- User-friendly interface for taking quizzes.
+- Ability to create and manage quizzes.
+- Real-time tracking of quiz progress and results.
+- Responsive design for optimal performance on mobile and desktop devices.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React**
+- **React Router**
+- **Formik** (for form handling)
+- **Yup** (for validation)
+- **React helmet** (for SEO)
+- **React animated cursor** (for custom cursor)
+- **React error boundary** (for handle errors)
+- **Framer Motion** (for animations)
+- **Custom Hooks** (for API calls)
+- **CSS Modules** (or SCSS for styling)
+- **JSON Server** (for mock API, or a real backend if implemented)
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get a local copy of the project up and running, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone https://github.com/your-username/quizcrafter.git
+   ```
 
-### `npm run eject`
+2. Navigate to the project directory:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   cd quizcrafter
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Install the required packages:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Run the application:
 
-## Learn More
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   The app will be running on `http://localhost:3000`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Navigate in another terminal to the JSON directory:
 
-### Code Splitting
+   ```bash
+   cd src/resources/db
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+6. Run the JSON server (it's important to run it on a port other than 3000):
 
-### Analyzing the Bundle Size
+   ```bash
+   json-server --watch db.json --port 5000
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Access the application in your web browser.
+2. Create or select a quiz to take.
+3. Enter your name to start the quiz.
+4. Answer the questions and submit to see your results.
 
-### Advanced Configuration
+## API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The application interacts with a mock backend for quiz data. Below are the key endpoints that the frontend uses:
 
-### Deployment
+- **GET /tests**:  
+  - Description: Retrieves all quizzes available in the database.
+  - Response: Returns an array of quiz objects, each containing properties such as `id`, `name`, `description`, `author`, `views`, and `questions`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **GET /tests/:id**:  
+  - Description: Retrieves a specific quiz by its ID.
+  - Parameters: `id` - The ID of the quiz to retrieve.
+  - Response: Returns a quiz object if found; otherwise, returns a 404 error.
 
-### `npm run build` fails to minify
+### Example Response for `/tests`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+[
+  {
+    "id": "1",
+    "name": "JavaScript Basics",
+    "description": "Test your knowledge of JavaScript fundamentals.",
+    "author": "John Doe",
+    "views": 120,
+    "questions": [...],
+    "timer": 30
+  }
+]
+```
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements or new features, please follow these steps:
+
+1. **Fork the repository**:  
+   Click the "Fork" button at the top right corner of this repository.
+
+2. **Create your feature branch**:
+
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+
+3. **Commit your changes**:
+
+   ```bash
+   git commit -m 'Add some feature'
+   ```
+
+4. **Push to the branch**:
+
+   ```bash
+   git push origin feature/YourFeature
+   ```
+
+5. **Open a pull request**:  
+   Navigate to the original repository and click on the "Pull Requests" tab, then click the "New Pull Request" button.
+
+### Code of Conduct
+
+Please adhere to this project's code of conduct. We expect all contributors to treat each other with respect and contribute positively.
+
+## License
+
+This project is distributed under the MIT License. See the `LICENSE` file for more information.
+
+## Acknowledgements
+
+- Thank you to **React** for providing an awesome library.
+- Special thanks to **Formik** and **Yup** for simplifying form handling and validation.
+- Acknowledgments to **Framer Motion** for providing smooth animations.
+
+## Contact
+
+Your Name - [gorsunfoster@gmail.com](mailto:gorsunfoster@gmail.com)
+
+Project Link: [https://github.com/gorsun4ic/quizcrafter](https://github.com/gorsun4ic/quizcrafter)
