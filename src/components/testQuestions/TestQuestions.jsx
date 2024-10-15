@@ -149,7 +149,7 @@ const useTimer = (initialTimer) => {
 		return () => {
 				clearInterval(intervalId);
 		};
-	}, [isRunning]);
+	}, [isRunning, usedTime]);
 
 	// Effect to manage quiz countdown
 	useEffect(() => {

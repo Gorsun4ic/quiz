@@ -1,3 +1,5 @@
+import "./question.scss";
+
 /**
  * Question component that displays a question with its answer options
  * and handles the user's answer selection.
