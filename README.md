@@ -3,6 +3,8 @@
 
 QuizCrafter is a web application designed to create, manage, and take quizzes online. It allows users to participate in quizzes, view results, and track their progress. The application leverages React for the frontend, offering a smooth and interactive user experience.
 
+![image](https://github.com/user-attachments/assets/f662c5b4-cdf0-41de-9732-a0870afadd6f)
+
 ## Table of Contents
 
 - [Features](#features)
@@ -114,6 +116,16 @@ The application interacts with a mock backend for quiz data. Below are the key e
   }
 ]
 ```
+
+## Demo
+
+![image](https://github.com/user-attachments/assets/543aa16d-8cd7-460e-a389-9b69d85e3b06)
+
+![image](https://github.com/user-attachments/assets/397dec79-269e-4bbf-a53a-2fe9cc926cc0)
+
+![image](https://github.com/user-attachments/assets/ab411f1b-8a57-4301-bd27-29c7786140dc)
+
+![image](https://github.com/user-attachments/assets/18e7c82d-5f77-4a4e-953d-987ba6bf2001)
 
 ## Contributing
 
