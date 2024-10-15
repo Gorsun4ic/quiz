@@ -4,6 +4,10 @@
 	gap: 10px;
 	margin-bottom: 36px;
 
+	@media (max-width: 768px){
+		 overflow-x: auto; 
+	}
+
 	&__element {
 		border-radius: 5px;
 		padding: 8px;

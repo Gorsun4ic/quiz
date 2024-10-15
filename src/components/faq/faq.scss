@@ -14,18 +14,34 @@
 		font-size: 24px;
 		letter-spacing: 0.02em;
 		font-weight: 200;
-		line-height: 40px;
+		line-height: 1.6;
+		@media (max-width: 768px) {
+			font-size: 19px;
+		}
 	}
 	&__title {
 		text-transform: uppercase;
 		font-weight: 700;
-		font-size: 63px;
-		line-height: 97px;
-		letter-spacing: 0.03em;
 		margin-bottom: 46px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		font-size: 63px;
+		line-height: 1.7;
+		letter-spacing: 0.03em;
+
+		@media (max-width: 1200px) {
+			margin-bottom: 24px;
+		}
+
+		@media (max-width: 768px) {
+			font-size: 53px;
+		}
+
+		@media (max-width: 585px) {
+			font-size: 42px;
+			margin-bottom: 0;
+		}
 	}
 	&__accordions {
 		flex: 615px 0 1;
@@ -43,12 +59,20 @@
 		font-size: 32px;
 		font-weight: 400;
 		padding: 10px 24px;
+		@media (max-width:585px){
+			  font-size: 24px;
+				padding: 8px 16px;
+		}
 	}
 	&__description {
-		padding: 0 24px 12px;
+		padding: 0 24px;
 		font-size: 24px;
 		font-weight: 200;
-		line-height: 40px;
+		line-height: 1.6;
 		letter-spacing: 0.03em;
+		@media (max-width:585px){
+			  font-size: 19px;
+				padding: 0 16px;
+		}
 	}
 }

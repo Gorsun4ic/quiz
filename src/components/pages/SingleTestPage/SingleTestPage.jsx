@@ -5,9 +5,12 @@ import TestStart from "../../testStart/TestStart";
 import TestQuestions from "../../testQuestions/TestQuestions";
 import Mark from "../../mark/Mark";
 
+import "./singleTestPage.scss";
+
 const SingleTestPage = () => {
 	const [userName, setUserName] = useState(null);
 	const [time, setTime] = useState({
+		timeToShow: 0,
 		minutes: 0,
 		seconds: 0,
 	});
@@ -35,13 +38,13 @@ const SingleTestPage = () => {
 		setProcess("questions");
 	};
 
-	const onFinish = (time, usedTime) => {
-		const {minutes, seconds} = usedTime;
-		const getSeconds = (time * 60) - (minutes * 60 + seconds);
+	const onFinish = (usedTime) => {
+		const {minutes, seconds, timeToShow} = usedTime;
 		setProcess("finish");
 		setTime({
-			minutes: Math.floor(getSeconds / 60),
-			seconds: getSeconds % 60
+			timeToShow: timeToShow,
+			minutes: minutes,
+			seconds: seconds
 		});
 	};
 
@@ -81,7 +84,7 @@ const SingleTestPage = () => {
 		}
 	};
 
-	return <main>{setContent(process)}</main>;
+	return <main id="test-page">{setContent(process)}</main>;
 };
 
 export default SingleTestPage;

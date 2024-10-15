@@ -6,17 +6,42 @@
 	text-transform: uppercase;
 	font-size: 32px;
 	padding-top: 55px;
+	background-color: #000;
+	@media (max-width: 992px) {
+		padding-top: 32px;
+	}
+	@media (max-width: 585px) {
+		padding-top: 16px;
+	}
 	.container {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 4px 16px;
+		@media (max-width: 485px) {
+			justify-content: center;
+		}
 	}
 	&__logo {
 		font-weight: 700;
+		@media (max-width: 585px) {
+			line-height: 1.8;
+		}
 	}
 	&__list {
 		display: flex;
 		align-items: center;
 		gap: 45px;
+		@media (max-width: 768px) {
+			gap: 24px;
+		}
+		@media (max-width: 585px) {
+			gap: 14px;
+		}
+		@media (max-width: 485px) {
+			flex-basis: 100%;
+			justify-content: center;
+		}
 	}
 	&__item {
 		padding: 5px;

@@ -4,7 +4,7 @@
 	&__title {
 		font-size: 49px;
 		font-weight: 700;
-		line-height: 76px;
+		line-height: 1.6;
 		letter-spacing: 0.02em;
 		text-align: center;
 		margin-bottom: 30px;
@@ -22,7 +22,6 @@
 		border-radius: 5px;
 		max-width: 172px;
 		text-align: center;
-		line-height: 30px;
 		margin: 0 auto 64px;
 		span {
 			font-size: 39px;
@@ -42,48 +41,66 @@
 		justify-content: space-between;
 		text-transform: uppercase;
 		margin-bottom: 64px;
+		gap: 32px 16px;
+		@media (max-width: 992px) {
+			flex-wrap: wrap;
+		}
 		p {
 			font-size: 24px;
 			letter-spacing: 0.02em;
 			font-weight: 400;
 		}
+		.score,
+		.result,
+		.correct,
+		.incorrect {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			gap: 25px;
+			text-align: center;
+
+			div {
+				background-color: #1e1e1e;
+				font-size: 24px;
+				letter-spacing: 0.02em;
+				font-weight: 400;
+				padding: 6px 32px;
+				min-width: 140px;
+				border-radius: 5px;
+			}
+		}
 		&__left {
 			display: flex;
 			align-items: center;
 			gap: 24px;
-			.total-time {
-				p {
-					font-size: 16px;
-					margin-bottom: 0;
-					text-align: center;
-				}
+			@media (max-width: 992px) {
+				flex-basis: 100%;
+				justify-content: center;
 				div {
-					padding: 4px 16px;
-					background-color: #1e1e1e;
-					border-radius: 5px;
-					font-size: 24px;
-					letter-spacing: 0.02em;
-					font-weight: 400;
+					display: flex;
+					align-items: center;
+					gap: 16px;
+					justify-content: center;
 				}
+			}
+			@media (max-width: 585px){
+				  flex-wrap: wrap;
 			}
 			.score {
 				margin-bottom: 20px;
+				@media (max-width: 992px) {
+					margin-bottom: 0;
+				}
 			}
 			.score,
 			.result {
-				display: flex;
-				justify-content: flex-end;
-				align-items: center;
-				gap: 25px;
-				text-align: center;
-				div {
-					background-color: #1e1e1e;
-					font-size: 24px;
-					letter-spacing: 0.02em;
-					font-weight: 400;
-					padding: 6px 32px;
-					min-width: 140px;
-					border-radius: 5px;
+				@media (max-width: 992px) {
+					display: block;
+
+					p {
+						margin-bottom: 8px;
+					}
 				}
 			}
 		}
@@ -91,45 +108,65 @@
 			display: flex;
 			align-items: center;
 			gap: 24px;
-
-			.total-time {
-				p {
-					font-size: 16px;
-					margin-bottom: 0;
-					text-align: center;
-				}
-
+			@media (max-width: 992px) {
+				flex-basis: 100%;
+				justify-content: center;
 				div {
-					padding: 4px 16px;
-					background-color: #1e1e1e;
-					border-radius: 5px;
-					font-size: 24px;
-					letter-spacing: 0.02em;
-					font-weight: 400;
+					display: flex;
+					align-items: center;
+					gap: 16px;
+					justify-content: center;
 				}
 			}
-
+						@media (max-width: 585px) {
+							flex-wrap: wrap;
+						}
 			.correct {
 				margin-bottom: 20px;
+				justify-content: flex-start;
+				@media (max-width: 992px) {
+					margin-bottom: 0;
+				}
 			}
 
 			.correct,
 			.incorrect {
-				display: flex;
-				align-items: center;
-				gap: 25px;
-				text-align: center;
-
-				div {
-					display: block;
-					background-color: #1e1e1e;
-					font-size: 24px;
-					letter-spacing: 0.02em;
-					font-weight: 400;
-					padding: 6px 32px;
-					min-width: 140px;
-					border-radius: 5px;
+				@media (max-width: 992px) {
+					display: flex;
+					gap: 8px;
+					flex-direction: column-reverse;
 				}
+			}
+		}
+	}
+	.total-time {
+		@media (max-width: 992px) {
+			display: block !important;
+		}
+
+		p {
+			font-size: 16px;
+			margin-bottom: 0;
+			text-align: center;
+
+			@media (max-width: 992px) {
+				font-size: 24px;
+				letter-spacing: 0.02em;
+				font-weight: 400;
+				margin-bottom: 8px;
+			}
+		}
+
+		div {
+			padding: 4px 16px;
+			background-color: #1e1e1e;
+			border-radius: 5px;
+			font-size: 24px;
+			letter-spacing: 0.02em;
+			font-weight: 400;
+
+			@media (max-width: 992px) {
+				padding: 6px 32px;
 			}
 		}
 	}

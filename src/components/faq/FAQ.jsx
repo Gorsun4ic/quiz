@@ -30,7 +30,7 @@ const FAQ = () => {
 
 	const accordionVariants = {
 		hidden: { height: 0, opacity: 0 },
-		visible: { height: "auto", opacity: 1 },
+		visible: { height: "auto", opacity: 1, paddingBottom: "12px" },
 	};
 
 

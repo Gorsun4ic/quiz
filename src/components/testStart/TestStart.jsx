@@ -14,6 +14,29 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 
 import "./testStart.scss";
 
+/**
+ * TestStart Component
+ *
+ * Displays the start interface of a quiz, including test details and a form 
+ * for user name input. Fetches test information using the test ID from the URL.
+ *
+ * Props:
+ * - onStart: Function to call when the quiz starts.
+ * - setUserName: Function to set the user's name in the application state.
+ *
+ * State:
+ * - testInfo: Object containing test details (name, author, views, description).
+ *
+ * Functions:
+ * - onTestLoaded(tests): Updates the component state with the fetched test data.
+ * - handleSubmit(value): Handles form submission and starts the quiz.
+ * - setContent(process, Component): Renders different content based on the process state.
+ *
+ * Example Usage:
+ * <TestStart onStart={handleStart} setUserName={setUserName} />
+ */
+
+
 const TestStart = ({ onStart, setUserName }) => {
 	const { testId } = useParams();
 	const [testInfo, setTestInfo] = useState({
@@ -51,7 +74,6 @@ const TestStart = ({ onStart, setUserName }) => {
 	const content = () => {
 		return (
 			<>
-				<p>Personality quiz</p>
 				<h1 className="test-start__title">{testInfo.name}</h1>
 				<p>Quiz introduction</p>
 				<p className="test-start__desc">{testInfo.description}</p>

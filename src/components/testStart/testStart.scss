@@ -3,20 +3,20 @@
 	&__title {
 		font-size: 49px;
 		font-weight: 700;
-		line-height: 76px;
+		line-height: 1.6;
 		letter-spacing: 0.02em;
 		margin-bottom: 18px;
 	}
 	&__desc {
 		font-size: 16px;
-		line-height: 27px;
+		line-height: 1.7;
 		font-weight: 200;
 		margin: 0 auto 64px;
 		max-width: 500px;
 	}
 	p:not(.test-start__desc) {
 		font-size: 18px;
-		line-height: 30px;
+		line-height: 1.7;
 		font-weight: 400;
 		letter-spacing: 0.03em;
 		margin-bottom: 12px;
@@ -26,7 +26,7 @@
 			display: block;
 			margin-bottom: 18px;
 			font-size: 18px;
-			line-height: 30px;
+			line-height: 1.7;
 		}
 		&__input {
 			margin-bottom: 16px;
@@ -61,7 +61,7 @@
 			font-size: 24px;
 			letter-spacing: 0.02em;
 			font-weight: 700;
-			line-height: 40px;
+			line-height: 1.7;
 			padding: 6px 32px;
 			color: #000;
 			max-width: 185px;

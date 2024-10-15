@@ -43,7 +43,7 @@ const PageTransition = ({ children }) => {
 				initial={{ opacity: 1 }}
 				exit={{ opacity: 0 }} // Fade out content during the transition
 				transition={{ duration: 1 }}
-				style={{ height: "100%", overflow: "hidden" }}>
+				style={{ height: "100%"}}>
 				{children}
 			</motion.div>
 		</motion.div>

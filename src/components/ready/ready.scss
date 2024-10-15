@@ -1,12 +1,28 @@
 .ready {
 	&__title {
-		text-transform: uppercase;
-		font-weight: 700;
-		font-size: 63px;
-		line-height: 97px;
-		letter-spacing: 0.03em;
 		margin-bottom: 48px;
 		max-width: 635px;
+		font-weight: 700;
+		text-transform: uppercase;
+		font-size: 63px;
+		line-height: 1.7;
+		letter-spacing: 0.03em;
+
+		@media (max-width: 1200px) {
+			margin-bottom: 24px;
+		}
+
+		@media (max-width: 768px) {
+			font-size: 53px;
+		}
+
+		@media (max-width: 585px) {
+			font-size: 42px;
+			margin-bottom: 16px;
+		}
+		@media (max-width:485px){
+			  text-align: center;
+		}
 	}
 	&__button {
 		display: inline-block;
@@ -18,11 +34,19 @@
 		border-radius: 5px;
 		text-transform: uppercase;
 		font-size: 39px;
-		line-height: 62px;
+		line-height: 1.6;
 		letter-spacing: 0.02em;
 		font-weight: 700;
 		color: #000;
 		text-align: center;
 		cursor: pointer;
+		@media (max-width: 768px) {
+			font-size: 31px;
+			padding: 8px 24px;
+			max-width: 200px;
+		}
+		@media (max-width:485px){
+			  max-width: 100%;
+		}
 	}
 }

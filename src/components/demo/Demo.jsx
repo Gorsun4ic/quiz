@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import useSplitStrings from "../../hooks/useSplitStrings";
-import substract from "../../resources/img/subtract.svg";
+import useWindowResize from "../../hooks/useWindowResize";
 
 import "./demo.scss";
 
@@ -10,7 +10,8 @@ const Demo = () => {
 	const [hover, setHover] = useState(false); // Hover ul with demo
 	const [selectedItem, setSelectedItem] = useState(null);
 	const [click, setClick] = useState(null); // Set clicked item in demo
-	const [substractAnimation, setSubstractAnimation] = useState(true); // For stop substract animation
+	
+	const screenWidth = useWindowResize();
 
 	const questionsArr = [
 		{
@@ -70,7 +71,7 @@ const Demo = () => {
 			opacity: 1,
 			transition: {
 				delayChildren: 0.5,
-				staggerChildren: 0.8 // Delay between the animation of each child
+				staggerChildren: 0.8, // Delay between the animation of each child
 			},
 		},
 	};
@@ -80,7 +81,7 @@ const Demo = () => {
 		return {
 			hidden: { x: 0 },
 			visible: {
-				x: i % 2 === 0 ? -50 : 50,
+				x: screenWidth > 1180 ? (i % 2 === 0 ? -50 : 50) : 0,
 				transition: { delay: 0.2 },
 			},
 		};
@@ -136,13 +137,13 @@ const Demo = () => {
 				<div className="demo__question question">
 					<p className="question__title">What is the capital of Ukraine?</p>
 					<motion.ul
+						key={screenWidth}
 						className="question__list"
 						variants={containerVariants}
 						initial="hidden"
 						animate="visible"
 						onMouseEnter={() => setHover(true)}
-						onMouseLeave={() => setHover(false)}
-					>
+						onMouseLeave={() => setHover(false)}>
 						{items}
 					</motion.ul>
 				</div>
